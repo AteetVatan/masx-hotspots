@@ -36,10 +36,12 @@ def main():
     #test
     #invoke CPU ETL PROCESS
     date = "20250702" #debug 20250701 is 2025-07-01, 20250930 is 2025-09-30
+    date = "20251025"
     date = datetime.strptime(date, "%Y%m%d")
     
-    flashpoint_db_service = FlashpointDatabaseService(date, create_tables=False)
-    asyncio.run(flashpoint_db_service.connect())
+    flashpoint_db_service = FlashpointDatabaseService(date, create_tables=False)    
+    if not flashpoint_db_service.client:
+        asyncio.run(flashpoint_db_service.connect())
     result = asyncio.run(FeedETLTriggerClient.trigger_feed_etl_by_article_ids(date, flashpoint_db_service, "masxai"))
     print(f"CPU ETL PROCESS triggered for date: 2025-07-01")
     
