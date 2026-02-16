@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Query Planner Agent for Global Signal Grid (MASX) Agentic AI System.
+Query Planner Agent for MASX-HOTSPOTS Agentic AI System.
 
 This agent is responsible for:
 - Formulating search queries based on domain classification

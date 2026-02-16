@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Utility for Global Signal Grid (MASX) Agentic AI System.
+Utility for MASX-HOTSPOTS Agentic AI System.
 Common utilities used across agents, workflows, and services including:
 - ID generation, text sanitization, URL validation
 - Retry logic with exponential backoff

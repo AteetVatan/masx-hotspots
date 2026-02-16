@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-API routes for Global Signal Grid (MASX) Agentic AI System.
+API routes for MASX-HOTSPOTS Agentic AI System.
 
 Route modules:
 - health: System health and status endpoints

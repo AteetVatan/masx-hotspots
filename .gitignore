@@ -94,3 +94,7 @@ src/flashpoints/flashpoint-2025-07-25-7.json
 src/app/debug_data/flashpoint_21_07_2025.json
 src/app/debug_data/flashpoint_25_07_2025.json
 jobs.db
+
+# AI Agent / Cursor IDE
+.agent/
+.cursor/

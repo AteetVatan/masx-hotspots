@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Flashpoint LLM Agent Validator for Global Signal Grid (MASX) Agentic AI System.
+Flashpoint LLM Agent Validator for MASX-HOTSPOTS Agentic AI System.
 
 Checks if the flashpoint belongs to the accepted strategic domains.
 

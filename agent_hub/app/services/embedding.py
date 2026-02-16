@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Embedding service for Global Signal Grid (MASX) Agentic AI System.
+Embedding service for MASX-HOTSPOTS Agentic AI System.
 
 Provides vector embedding capabilities with:
 - OpenAI embeddings integration

@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Data Sources Service for Global Signal Grid (MASX) Agentic AI System.
+Data Sources Service for MASX-HOTSPOTS Agentic AI System.
 
 Provides integration with external data sources:
 - Google News RSS feeds

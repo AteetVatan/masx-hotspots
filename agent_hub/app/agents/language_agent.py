@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Entity Extractor Agent for Global Signal Grid (MASX) Agentic AI System.
+Entity Extractor Agent for MASX-HOTSPOTS Agentic AI System.
 
 This agent is responsible for:
 - Extracting entities (people, organizations, locations, etc.) from text

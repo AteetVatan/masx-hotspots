@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Merge Deduplicator Agent for Global Signal Grid (MASX) Agentic AI System.
+Merge Deduplicator Agent for MASX-HOTSPOTS Agentic AI System.
 
 This agent is responsible for:
 - Merging articles and events from different sources

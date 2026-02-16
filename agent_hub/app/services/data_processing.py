@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Data Processing Pipeline for Global Signal Grid (MASX) Agentic AI System.
+Data Processing Pipeline for MASX-HOTSPOTS Agentic AI System.
 
 Provides ETL, filtering, enrichment, and analytics capabilities:
 - Article processing and normalization

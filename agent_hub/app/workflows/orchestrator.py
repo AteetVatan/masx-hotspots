@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Main orchestrator for Global Signal Grid (MASX) Agentic AI System.
+Main orchestrator for MASX-HOTSPOTS Agentic AI System.
 
 Coordinates multi-agent workflows using LangGraph with:
 - Agent execution coordination and state management

@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-News Fetcher Agent for Global Signal Grid (MASX) Agentic AI System.
+News Fetcher Agent for MASX-HOTSPOTS Agentic AI System.
 
 This agent is responsible for:
 - Fetching news articles from Google News RSS feeds

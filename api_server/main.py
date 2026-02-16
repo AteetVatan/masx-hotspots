@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Main application entry point for Global Signal Grid (MASX) Agentic AI System.
+Main application entry point for MASX-HOTSPOTS (MASX) Agentic AI System.
 
 This module provides the FastAPI application server with:
 - Health check endpoints

@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Data retrieval endpoints for Global Signal Grid (MASX) Agentic AI System.
+Data retrieval endpoints for MASX-HOTSPOTS Agentic AI System.
 
 This module provides RESTful API endpoints for accessing flashpoint and feed data
 from the Supabase database with built-in rate limiting and pagination support.

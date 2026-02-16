@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Event Analyzer Agent for Global Signal Grid (MASX) Agentic AI System.
+Event Analyzer Agent for MASX-HOTSPOTS Agentic AI System.
 
 This agent is responsible for:
 - Analyzing merged articles and events

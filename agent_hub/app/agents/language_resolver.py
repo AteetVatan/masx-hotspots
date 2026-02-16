@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Language Resolver Agent for Global Signal Grid (MASX) Agentic AI System.
+Language Resolver Agent for MASX-HOTSPOTS Agentic AI System.
 
 This agent is responsible for:
 - Detecting language of content

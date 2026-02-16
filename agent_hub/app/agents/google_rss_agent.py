@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Google RSS Agent for Global Signal Grid (MASX) Agentic AI System.
+Google RSS Agent for MASX-HOTSPOTS Agentic AI System.
 
 Extracts RSS feeds from Google News.
 

@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Parallel execution utilities for Global Signal Grid (MASX) Agentic AI System.
+Parallel execution utilities for MASX-HOTSPOTS Agentic AI System.
 
 Provides utilities for parallel task execution in workflows:
 - Async task execution with proper coordination

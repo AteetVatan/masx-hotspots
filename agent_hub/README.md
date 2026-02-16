@@ -1,4 +1,4 @@
-# 🧠 MASX AI – GLOBAL SIGNAL GENERATOR
+# 🧠 MASX-HOTSPOTS – Agent Hub
 
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/masxai/masx-ai-server)
 [![License](https://img.shields.io/badge/license-Proprietary-red)](LICENSE)

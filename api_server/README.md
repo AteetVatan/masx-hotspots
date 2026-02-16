@@ -8,7 +8,7 @@ sdk_version: "1.0.0"
 app_file: main.py
 pinned: false
 ---
-# MASX AI - GSG – Global Signal Grid API
+# MASX-HOTSPOTS API
 
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.104.1-green.svg)](https://fastapi.tiangolo.com/)
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
@@ -31,7 +31,7 @@ pinned: false
 
 ## 🎯 Overview
 
-**MASX AI** is a proprietary **Strategic Agentic AI System** that powers the **Global Signal Grid (GSG)** — a real-time geopolitical intelligence engine.
+**MASX AI** is a proprietary **Strategic Agentic AI System** that powers **MASX-HOTSPOTS** — a real-time geopolitical intelligence engine.
 
 The **GSG API** provides programmatic access to the system’s autonomous outputs, including:
 

@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Real-time Data Streaming Service for Global Signal Grid (MASX) Agentic AI System.
+Real-time Data Streaming Service for MASX-HOTSPOTS Agentic AI System.
 
 Provides real-time data streaming capabilities:
 - WebSocket connections for live data feeds

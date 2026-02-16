@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Domain Classifier Agent for Global Signal Grid (MASX) Agentic AI System.
+Domain Classifier Agent for MASX-HOTSPOTS Agentic AI System.
 
 Identifies geopolitical domains from content using LLM classification.
 Supports 12 high-level categories including geopolitical, military, economic, etc.

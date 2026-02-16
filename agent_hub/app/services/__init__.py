@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Services for Global Signal Grid (MASX) Agentic AI System.
+Services for MASX-HOTSPOTS Agentic AI System.
 
 This package contains service layer components including:
 - Database service with Supabase integration

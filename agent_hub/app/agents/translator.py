@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Translator Agent for Global Signal Grid (MASX) Agentic AI System.
+Translator Agent for MASX-HOTSPOTS Agentic AI System.
 
 This agent is responsible for:
 - Translating content between languages

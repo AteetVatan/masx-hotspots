@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Workflow factory functions for Global Signal Grid (MASX) Agentic AI System.
+Workflow factory functions for MASX-HOTSPOTS Agentic AI System.
 Provides factory functions to create different types of workflows:
 - Daily workflow for regular intelligence gathering
 - Detection workflow for anomaly handling

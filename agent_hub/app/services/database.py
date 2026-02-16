@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Database service for Global Signal Grid (MASX) Agentic AI System.
+Database service for MASX-HOTSPOTS Agentic AI System.
 
 Provides Supabase integration with:
 - Connection management and pooling

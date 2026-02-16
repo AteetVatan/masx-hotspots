@@ -17,7 +17,7 @@
 # # Contact: ab@masxai.com | MASXAI.com
 
 # """
-# Service management endpoints for Global Signal Grid (MASX) Agentic AI System.
+# Service management endpoints for MASX-HOTSPOTS Agentic AI System.
 
 # Provides endpoints for:
 # - Service status and configuration

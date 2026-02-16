@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-LLM service for Global Signal Grid (MASX) Agentic AI System.
+LLM service for MASX-HOTSPOTS Agentic AI System.
 Provides unified interface for LLM interactions with:
 - Multiple provider support (OpenAI, Mistral)
 - Retry logic with exponential backoff

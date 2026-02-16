@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Event Fetcher Agent for Global Signal Grid (MASX) Agentic AI System.
+Event Fetcher Agent for MASX-HOTSPOTS Agentic AI System.
 
 This agent is responsible for:
 - Fetching events from GDELT 2.0 API

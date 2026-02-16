@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Token cost tracking service for Global Signal Grid (MASX) Agentic AI System.
+Token cost tracking service for MASX-HOTSPOTS Agentic AI System.
 
 Provides centralized token usage tracking and cost calculation for LLM API calls
 across all agents and services. Supports multiple LLM providers with configurable

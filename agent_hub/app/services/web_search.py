@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Web search service for Global Signal Grid (MASX) Agentic AI System.
+Web search service for MASX-HOTSPOTS Agentic AI System.
 
 Provides unified interface for web search operations including Google Custom Search,
 news extraction, and content aggregation. Supports multiple search providers and

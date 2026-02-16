@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Translation service for Global Signal Grid (MASX) Agentic AI System.
+Translation service for MASX-HOTSPOTS Agentic AI System.
 
 Provides multilingual translation capabilities with:
 - Google Translate integration

@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-FastAPI application for Global Signal Grid (MASX) Agentic AI System.
+FastAPI application for MASX-HOTSPOTS Agentic AI System.
 
 Main application setup with:
 - Middleware configuration
@@ -128,7 +128,7 @@ def create_app() -> FastAPI:
     # Create FastAPI app with global dependencies
     app = FastAPI(
         title="MASX AI-GlobalSignalGrid API",
-        description="Global Signal Grid (GSG) Agentic AI System API",
+        description="MASX-HOTSPOTS Agentic AI System API",
         version="1.0.0",
         docs_url="/docs" if settings.enable_api_docs else None,
         redoc_url="/redoc" if settings.enable_api_docs else None,
@@ -365,7 +365,7 @@ def _register_routes(app: FastAPI):
         return {
             "name": "MASX AI System API",
             "version": "1.0.0",
-            "description": "Global Signal Grid (GSG) Agentic AI System",
+            "description": "MASX-HOTSPOTS Agentic AI System",
             "status": "operational",
             "endpoints": {
                 "health": "/health",

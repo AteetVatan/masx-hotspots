@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Base agent classes and interfaces for Global Signal Grid (MASX) Agentic AI System.
+Base agent classes and interfaces for MASX-HOTSPOTS Agentic AI System.
 Defines the foundational agent architecture including:
 - BaseAgent: Abstract base class for all agents
 - AgentResult: Standardized result structure for agent outputs

@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Exception for Global Signal Grid (MASX) Agentic AI System.
+Exception for MASX-HOTSPOTS Agentic AI System.
 Defines custom exceptions for robust error handling across agents, workflows, configuration,
 validation, and external service integration. Use these for clear, structured error reporting.
 
@@ -31,7 +31,7 @@ from typing import Any, Optional
 
 class MASXException(Exception):
     """
-    Base exception for all MASX/Global Signal Grid errors.
+    Base exception for all MASX/MASX-HOTSPOTS errors.
     """
 
     def __init__(self, message: str, context: Optional[Any] = None):

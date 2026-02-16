@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-FastAPI API layer for Global Signal Grid (MASX) Agentic AI System.
+FastAPI API layer for MASX-HOTSPOTS Agentic AI System.
 
 Provides REST API endpoints for:
 - System monitoring and health checks

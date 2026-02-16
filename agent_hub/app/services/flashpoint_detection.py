@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Flashpoint detection service for Global Signal Grid (MASX) Agentic AI System.
+Flashpoint detection service for MASX-HOTSPOTS Agentic AI System.
 
 Provides entity tracking, country validation, and flashpoint deduplication logic
 for the flashpoint detection workflow. Manages entity combinations and ensures

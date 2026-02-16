@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Agent implementations for Global Signal Grid (MASX) Agentic AI System.
+Agent implementations for MASX-HOTSPOTS Agentic AI System.
 This package contains all specialized agents for the multi-agent system including:
 - Base agent classes and interfaces
 - Domain classification and query planning agents

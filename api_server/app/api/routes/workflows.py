@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Workflow management endpoints for Global Signal Grid (MASX) Agentic AI System.
+Workflow management endpoints for MASX-HOTSPOTS Agentic AI System.
 
 Provides endpoints for:
 - Workflow execution

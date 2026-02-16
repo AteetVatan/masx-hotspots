@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-State management models for Global Signal Grid (MASX) Agentic AI System.
+State management models for MASX-HOTSPOTS Agentic AI System.
 
 Defines the core state objects for orchestrating multi-agent workflows, tracking agent execution,
 and maintaining workflow progress and results. All models are Pydantic-based for type safety.

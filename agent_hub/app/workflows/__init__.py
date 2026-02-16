@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Workflow orchestration for Global Signal Grid (MASX) Agentic AI System.
+Workflow orchestration for MASX-HOTSPOTS Agentic AI System.
 This package contains LangGraph workflow definitions and orchestration logic including:
 - Main orchestrator for coordinating agent execution
 - Workflow definitions for different scenarios

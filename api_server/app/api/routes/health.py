@@ -17,7 +17,7 @@
 # # Contact: ab@masxai.com | MASXAI.com
 
 # """
-# Health check endpoints for Global Signal Grid (MASX) Agentic AI System.
+# Health check endpoints for MASX-HOTSPOTS Agentic AI System.
 
 # Provides endpoints for:
 # - System health status

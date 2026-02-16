@@ -1,9 +1,9 @@
 <div align="center">
 
-# 🛰️ MASX AI – Global Signal Grid (GSG)
+# 🛰️ MASX-HOTSPOTS
 
 **Copyright (c) 2025 Ateet Vatan Bahmani**  
-**Project: MASX AI – Strategic Agentic AI System**  
+**Project: MASX-HOTSPOTS – Strategic Agentic AI System**  
 **All rights reserved.**
 
 **MASX AI** is a proprietary software system developed and owned by **Ateet Vatan Bahmani**.
@@ -16,17 +16,21 @@ This project is **not open-source** and is intended solely for internal, researc
 
 **Contact:** [ab@masxai.com](mailto:ab@masxai.com) | [MASXAI.com](https://masxai.com)
 
+🔗 **GitHub Repository:** [https://github.com/AteetVatan/masx-hotspots](https://github.com/AteetVatan/masx-hotspots)
+
 ---
 
 </div>
 
-# 🛰️ MASX AI – Global Signal Grid (GSG)
+# 🛰️ MASX-HOTSPOTS
 
 > **Autonomous Global Intelligence Platform** - 24/7 flashpoint detection, analysis, and forecasting using multi-agent AI orchestration with comprehensive API access
 
 [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
 [![LangGraph](https://img.shields.io/badge/LangGraph-0.2.0+-green.svg)](https://github.com/langchain-ai/langgraph)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.110.0+-red.svg)](https://fastapi.tiangolo.com/)
+[![Mistral](https://img.shields.io/badge/Mistral-Small--Instruct-green.svg)](https://mistral.ai/)
+[![OpenAI](https://img.shields.io/badge/OpenAI-1.50.0+-green.svg)](https://openai.com/)
 [![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
 
 ---
@@ -36,12 +40,16 @@ This project is **not open-source** and is intended solely for internal, researc
 - [Overview](#-overview)
 - [System Architecture](#-system-architecture)
 - [Core Components](#-core-components)
+- [Agent Specializations](#-agent-specializations)
+- [Agent Collaboration System](#-agent-collaboration-system)
+- [API Server Architecture](#-api-server-architecture)
 - [Features](#-features)
 - [Technology Stack](#-technology-stack)
 - [Installation](#-installation)
 - [Usage](#-usage)
 - [API Documentation](#-api-documentation)
 - [Docker Deployment](#-docker-deployment)
+- [Sample Output](#-sample-output)
 - [Development](#-development)
 - [Roadmap](#-roadmap)
 - [Contributing](#-contributing)
@@ -51,7 +59,7 @@ This project is **not open-source** and is intended solely for internal, researc
 
 ## 🎯 Overview
 
-**MASX AI Global Signal Grid (GSG)** is a proprietary strategic intelligence system that autonomously monitors, analyzes, and forecasts global geopolitical flashpoints using advanced multi-agent AI orchestration.
+**MASX-HOTSPOTS** is a proprietary strategic intelligence system that autonomously monitors, analyzes, and forecasts global geopolitical flashpoints using advanced multi-agent AI orchestration.
 
 The system performs a full-scale internet scan daily at 00:00 UTC, continuously processing real-time geopolitical data to detect, extract, and classify emerging flashpoints. It identifies critical news signals across all regions and languages, and generates a curated list of language-aware, entity-driven news feed URLs for each flashpoint.
 
@@ -66,9 +74,21 @@ This service transforms raw geopolitical events into structured, multilingual RS
 - **Structured Output**: Delivering clean, categorized feeds to downstream systems
 - **API Access**: Providing programmatic access to intelligence outputs
 
+### Core Capabilities
+
+- **🔍 Real-time Flashpoint Detection**: Automated identification of emerging global tensions
+- **🧠 Multi-Agent Intelligence**: Coordinated AI agents for specialized analysis
+- **🌍 Multi-Source Data Fusion**: GDELT, Google News, RSS feeds, and custom sources
+- **🔤 Multilingual Processing**: 100+ language support with automatic translation
+- **📥 RSS Feed Generation**: Produces thousands of validated news feed URLs per flashpoint
+- **⚡ Autonomous Operation**: Self-triggering workflows with intelligent scheduling
+
 ### 🏗️ Architecture Philosophy
 
-Designed as a modular component within the **MASX Global Signal Grid** stack, this service exemplifies modern AI orchestration patterns using LangGraph's state management, parallel processing, and agent coordination capabilities.
+Designed as a modular component within the **MASX-HOTSPOTS** stack, this service exemplifies modern AI orchestration patterns using LangGraph's state management, parallel processing, and agent coordination capabilities. The system is built as two complementary sub-systems:
+
+1. **Agent Hub** – The intelligence engine (flashpoint detection, NLP, translation, feed generation)
+2. **API Server** – The data access layer (REST API, authentication, analytics, monitoring)
 
 ---
 
@@ -201,97 +221,316 @@ graph TB
     style DT fill:#f3e5f5
 ```
 
+### Full Pipeline Flowchart (Agent Hub)
+
+```mermaid
+flowchart TD
+    A[Daily Job Scheduler] --> B[Start Workflow]
+    B --> C[Flashpoint Detection]
+    C --> D[Flashpoint Validator]
+    D --> E{Fan Out Flashpoints}    
+    E --> F[Per-Flashpoint Subgraph]
+    F --> G[Domain Classification]
+    G --> H[Query Planning]
+    H --> I[Language Agent]
+    I --> J[Translation Agent]
+    J --> K[Google RSS Feeder]
+    K --> L[GDELT Feed Agent]
+    L --> M[Feed Finalizer]
+    
+    M --> N[Fan In Flashpoints]
+    N --> O[End Workflow]    
+    
+    Q[Mistral AI]
+    P[OpenAI GPT-4]
+    V[Google Search API] 
+    W[deep_translator]
+    X[NLLB] 
+    
+    K --> R[Google News RSS]
+    L --> S[GDELT API]
+    
+    N --> T[Supabase Database]
+    N --> U[Flashpoint Store]
+    
+    subgraph "Main Workflow"
+        B
+        C
+        D
+        E
+        N
+        O
+    end
+    
+    subgraph "Per-Flashpoint Processing"
+        G
+        H
+        I
+        J
+        K
+        L
+        M
+    end
+    
+    subgraph "Services"
+        V
+        W
+        X
+        R
+        S
+    end
+    
+    subgraph "LLM Providers"
+        P
+        Q
+    end   
+
+    subgraph "Storage Layer"
+        T
+        U
+    end
+```
+
 ---
 
 ## 🧩 Core Components
 
 ### 🧠 Agent Hub (Intelligence Engine)
 
-The **Agent Hub** is the core intelligence engine that powers the autonomous flashpoint detection and analysis:
+The **Agent Hub** is the core intelligence engine that powers the autonomous flashpoint detection and analysis. It contains:
 
-#### Agent Specializations
+| Directory | Description |
+|-----------|-------------|
+| `app/agents/` | 18 LangGraph agent implementations (flashpoint detection, classification, translation, feed generation, validation, etc.) |
+| `app/workflows/` | LangGraph workflow orchestrator with fan-out/fan-in parallel processing |
+| `app/services/` | 17 business logic services (LLM, database, translation, analytics, GDELT, web search, etc.) |
+| `app/core/` | Core data models, state management, enums, singletons, and utility functions |
+| `app/config/` | Configuration management and structured logging |
+| `app/constants/` | Country data, language codes, domain classifications, ISO-to-NLLB mappings, GDELT lookups |
+| `app/external/` | External service clients (Feed ETL trigger client) |
+| `flashpoints/` | Stored flashpoint detection results (JSON) |
 
-##### ⚡ Flashpoint LLM Agent
+### 🛰️ API Server (Data Access Layer)
+
+The **API Server** provides programmatic access to the system's autonomous outputs:
+
+| Directory | Description |
+|-----------|-------------|
+| `app/api/` | FastAPI application factory and route handlers |
+| `app/api/routes/` | Data, health, services, and workflow route endpoints |
+| `app/config/` | Settings management and logging configuration |
+| `app/core/` | Custom exceptions and core utilities |
+
+### 📂 Additional Components
+
+| Directory | Description |
+|-----------|-------------|
+| `poc_files/` | Proof-of-concept scripts (Custom GPT Google integration, Google RSS generator) |
+| `tests/` | Test suite organized by agents, services, and workflows |
+
+---
+
+## 🤖 Agent Specializations
+
+### Agent Collaboration System
+
+```mermaid
+sequenceDiagram
+    participant S as Scheduler
+    participant O as Orchestrator
+    participant FLA as Flashpoint LLM Agent
+    participant FVA as Flashpoint Validator
+    participant DC as Domain Classifier
+    participant QP as Query Planner
+    participant LA as Language Agent
+    participant TA as Translation Agent
+    participant GRF as Google RSS Feeder
+    participant GFA as GDELT Feed Agent
+    participant FF as Feed Finalizer
+    participant DB as Database
+
+    S->>O: Trigger Daily Workflow
+    O->>FLA: Detect Flashpoints
+    FLA->>O: Return Flashpoint List
+    
+    O->>FVA: Validate Flashpoints
+    FVA->>O: Return Validated Flashpoints
+    
+    Note over O: Fan Out - Parallel Processing
+    O->>DC: Classify Domain
+    DC->>O: Return Domain Categories
+    
+    O->>QP: Plan Queries
+    QP->>O: Return Query Strategy
+    
+    O->>LA: Extract Languages
+    LA->>O: Return Language Info
+    
+    O->>TA: Translate Queries
+    TA->>O: Return Translated Queries
+    
+    O->>GRF: Fetch Google RSS
+    GRF->>O: Return RSS Feeds
+    
+    O->>GFA: Fetch GDELT Data
+    GFA->>O: Return GDELT Events
+    
+    O->>FF: Merge & Deduplicate
+    FF->>O: Return Final Feeds
+    
+    Note over O: Fan In - Aggregate Results
+    O->>DB: Store Flashpoints & Feeds
+    DB->>O: Confirm Storage
+    
+    O->>S: Workflow Complete
+```
+
+### ⚡ Flashpoint LLM Agent
 - **Purpose**: Identifies emerging global tensions using LLM reasoning
 - **Capabilities**: LLM-powered flashpoint detection, iterative refinement, search optimization
 - **Services**: LLM Service + Google Search API
 - **Input**: Global tension queries and search parameters
 - **Output**: Curated list of flashpoints with descriptions and entities
 
-##### ✅ Flashpoint Validator Agent
+### ✅ Flashpoint Validator Agent
 - **Purpose**: Validates and filters flashpoints for relevance
 - **Capabilities**: Relevance scoring, duplicate detection, quality filtering
 - **Services**: LLM Service
 - **Input**: Raw flashpoint list from LLM agent
 - **Output**: Validated and filtered flashpoint dataset
 
-##### 🎯 Domain Classifier Agent
+### 🎯 Domain Classifier Agent
 - **Purpose**: Categorizes geopolitical events and threats
 - **Capabilities**: Event classification, threat assessment, priority ranking
 - **Services**: LLM Service
 - **Input**: Flashpoint data with title and description
 - **Output**: Domain categories and classifications
 
-##### 🧠 Query Planner Agent
+### 🧠 Query Planner Agent
 - **Purpose**: Orchestrates multi-step intelligence gathering
 - **Capabilities**: Query optimization, source selection, workflow planning
 - **Services**: LLM Service
 - **Input**: Flashpoint data with entities and domains
 - **Output**: Optimized query strategies for multiple sources
 
-##### 🌐 Language Agent
+### 🌐 Language Agent
 - **Purpose**: Extracts and identifies languages from entities
 - **Capabilities**: Language detection, entity-language mapping, query localization
 - **Services**: LLM Service + Hugging Face Models (Entity Detection)
 - **Input**: Query states with entities
 - **Output**: Language-aware query states
 
-##### 🔤 Translation Agent
+### 🔤 Translation Agent
 - **Purpose**: Translates queries to target languages
 - **Capabilities**: Multi-language translation, query adaptation, language optimization
 - **Services**: Translation Service (facebook/nllb-200-distilled-600M)
 - **Input**: Language-aware query states
 - **Output**: Translated queries for multiple languages
 
-##### 📰 Google RSS Feeder Agent
+### 📰 Google RSS Feeder Agent
 - **Purpose**: Fetches news from Google RSS feeds
 - **Capabilities**: RSS feed aggregation, content extraction, source validation
 - **Services**: Feed Parser Service + Google RSS URL Generation
 - **Input**: Translated queries
 - **Output**: Google RSS feed entries with metadata
 
-##### 📊 GDELT Feed Agent
+### 📊 GDELT Feed Agent
 - **Purpose**: Retrieves events from GDELT database
 - **Capabilities**: GDELT API integration, event filtering, temporal analysis
 - **Services**: GDELT API
 - **Input**: Translated queries
 - **Output**: GDELT event entries with geopolitical data
 
-##### 🔗 Feed Finalizer Agent
+### 🔗 Feed Finalizer Agent
 - **Purpose**: Merges and deduplicates feed entries
 - **Capabilities**: Content deduplication, feed merging, quality filtering
 - **Services**: Internal Processing (No External Services)
 - **Input**: Google RSS and GDELT feed entries
 - **Output**: Finalized, deduplicated feed dataset
 
-### 🛰️ API Server (Data Access Layer)
+### 📋 Additional Agents
 
-The **API Server** provides programmatic access to the system's autonomous outputs:
+| Agent | Purpose |
+|-------|---------|
+| **Event Analyzer** | Deep analysis of individual geopolitical events |
+| **Fact Checker** | Validates factual accuracy of detected signals |
+| **Language Resolver** | Resolves complex language/locale mappings |
+| **News Fetcher** | General-purpose news content retrieval |
+| **Validator** | Comprehensive data validation pipeline |
+| **Logging Auditor** | Audit trail and compliance logging |
+| **Memory Manager** | Agent memory and context management |
+| **Merge Deduplicator** | Advanced content deduplication across sources |
 
-#### Core API Features
+---
+
+## 🛰️ API Server Architecture
+
+### System Architecture
+
+```mermaid
+graph TB
+    subgraph "Client Layer"
+        A[Web Client]
+        B[Mobile App]
+        C[API Client]
+    end
+
+    subgraph "API Gateway"
+        D[FastAPI Server]
+        E[Authentication]
+        F[Rate Limiting]
+        G[CORS Middleware]
+    end
+
+    subgraph "Core Services"
+        H[Health Service]
+        J[Data Service]
+        K[Analytics Service]
+    end
+
+    subgraph "Data Layer"
+        P[Supabase Database]
+        Q[Redis Cache]
+        R[File Storage]
+    end
+
+    subgraph "Monitoring"
+        S[Logging]
+        T[Metrics]
+        U[Health Checks]
+    end
+
+    A --> D
+    B --> D
+    C --> D
+    D --> E
+    D --> F
+    D --> G
+    D --> H
+    D --> J
+    D --> K
+    J --> P
+    J --> Q
+    J --> R
+    H --> S
+    H --> T
+    H --> U
+```
+
+### Core API Features
 - **RESTful API**: Complete REST API with OpenAPI documentation
 - **Authentication**: Secure API key-based authentication
 - **CORS Support**: Cross-origin resource sharing configuration
 - **Request Logging**: Comprehensive request/response logging
 - **Error Handling**: Structured error responses and exception handling
 
-#### Data Management
+### Data Management
 - **Data Retrieval**: Efficient data fetching and processing
 - **Analytics**: Advanced data analytics and insights
 - **Caching**: Redis-based caching for improved performance
 - **Database Integration**: Supabase PostgreSQL integration
 
-#### Monitoring & Observability
+### Monitoring & Observability
 - **Health Checks**: Comprehensive system health monitoring
 - **Metrics Collection**: Performance metrics and analytics
 - **Structured Logging**: JSON-based logging with structlog
@@ -320,12 +559,15 @@ The **API Server** provides programmatic access to the system's autonomous outpu
 - **Domain Classification**: Categorize flashpoints by geopolitical domain (conflict, trade, diplomacy, etc.)
 - **Query Planning**: Generate optimized search queries based on event context
 - **Language Detection**: Automatically identify relevant languages for each flashpoint
+- **Fact Checking**: Validate factual accuracy of detected signals
+- **Memory Management**: Context-aware agent memory for improved reasoning
 
 ### 🚀 Production-Ready Features
 - **Rate Limiting**: Thread-safe rate limiting for external API calls
-- **Retry Logic**: Exponential backoff with configurable retry attempts
+- **Retry Logic**: Exponential backoff with configurable retry attempts (Tenacity)
 - **Structured Logging**: JSON-formatted logs with correlation IDs
 - **Health Monitoring**: Comprehensive health checks and metrics
+- **Token Tracking**: LLM token usage monitoring and cost tracking
 
 ### 🔄 Autonomous Workflows
 - **Daily Intelligence Cycle**: Automated 24/7 monitoring and analysis
@@ -342,88 +584,117 @@ The **API Server** provides programmatic access to the system's autonomous outpu
 - **Analytics Endpoints**: Statistical analysis and insights
 - **Health Monitoring**: System status and performance metrics
 
+### 🤖 LLM Integrations
+- **OpenAI GPT-4**: Primary reasoning and analysis engine
+- **Mistral AI**: Secondary analysis and validation
+- **Multi-Model Orchestration**: Intelligent model selection and fallback
+- **Doctrine-Based Reasoning**: Structured analytical frameworks
+- **Context-Aware Processing**: Intelligent context management
+
 ---
 
 ## 🛠️ Technology Stack
 
 ### 🤖 **AI/ML & Agent Frameworks**
-- **LangGraph 0.5.1** - State management and agent orchestration
-- **LangChain 0.3.26** - LLM integration and prompt management
-- **LangChain-OpenAI 0.3.27** - OpenAI integration
-- **LangChain-Community 0.3.27** - Community integrations
-- **CrewAI 0.140.0** - Multi-agent collaboration framework
-- **AutoGen 0.9.5** - Conversational AI framework
-- **OpenAI 1.93.0** - GPT-4 and embedding models
-- **TikToken 0.9.0** - Token counting and cost tracking
+| Technology | Version | Purpose |
+|-----------|---------|---------|
+| LangGraph | 0.5.1 | State management and agent orchestration |
+| LangChain | 0.3.26 | LLM integration and prompt management |
+| LangChain-OpenAI | 0.3.27 | OpenAI integration |
+| LangChain-Community | 0.3.27 | Community integrations |
+| CrewAI | 0.140.0 | Multi-agent collaboration framework |
+| AutoGen | 0.9.5 | Conversational AI framework |
+| OpenAI | 1.93.0 | GPT-4 and embedding models |
+| TikToken | 0.9.0 | Token counting and cost tracking |
 
 ### 🌐 **Web Framework & API**
-- **FastAPI 0.115.14** - High-performance async API framework
-- **Uvicorn 0.35.0** - ASGI server with WebSocket support
-- **Starlette 0.46.2** - ASGI toolkit
-- **Pydantic 2.11.7** - Data validation and serialization
-- **Pydantic-Settings 2.10.1** - Settings management
-- **HTTPX 0.28.1** - Async HTTP client
+| Technology | Version | Purpose |
+|-----------|---------|---------|
+| FastAPI | 0.115.14 | High-performance async API framework |
+| Uvicorn | 0.35.0 | ASGI server with WebSocket support |
+| Starlette | 0.46.2 | ASGI toolkit |
+| Pydantic | 2.11.7 | Data validation and serialization |
+| Pydantic-Settings | 2.10.1 | Settings management |
+| HTTPX | 0.28.1 | Async HTTP client |
 
 ### 🗄️ **Database & Vector Storage**
-- **Supabase 2.16.0** - PostgreSQL with real-time capabilities
-- **PostgREST 1.1.1** - REST API for PostgreSQL
-- **pgvector 0.4.1** - Vector similarity search
-- **psycopg2-binary 2.9.10** - PostgreSQL adapter
-- **asyncpg 0.30.0** - Async PostgreSQL driver
-- **SQLAlchemy 2.0.41** - ORM and database toolkit
+| Technology | Version | Purpose |
+|-----------|---------|---------|
+| Supabase | 2.16.0 | PostgreSQL with real-time capabilities |
+| PostgREST | 1.1.1 | REST API for PostgreSQL |
+| pgvector | 0.4.1 | Vector similarity search |
+| psycopg2-binary | 2.9.10 | PostgreSQL adapter |
+| asyncpg | 0.30.0 | Async PostgreSQL driver |
+| SQLAlchemy | 2.0.41 | ORM and database toolkit |
 
 ### 🔍 **NLP & Language Processing**
-- **SpaCy 3.8.7** - Industrial-strength NLP pipeline
-- **Transformers 4.53.1** - Hugging Face model library
-- **Torch 2.7.1** - PyTorch deep learning framework
-- **Sentence-Transformers 5.0.0** - Text embeddings
-- **NLTK 3.9.1** - Natural language toolkit
-- **TextBlob 0.19.0** - Text processing library
-- **jieba3k 0.35.1** - Chinese text segmentation
+| Technology | Version | Purpose |
+|-----------|---------|---------|
+| SpaCy | 3.8.7 | Industrial-strength NLP pipeline |
+| Transformers | 4.53.1 | Hugging Face model library |
+| Torch | 2.7.1 | PyTorch deep learning framework |
+| Sentence-Transformers | 5.0.0 | Text embeddings |
+| NLTK | 3.9.1 | Natural language toolkit |
+| TextBlob | 0.19.0 | Text processing library |
+| jieba3k | 0.35.1 | Chinese text segmentation |
 
 ### 🌍 **Translation & Language Services**
-- **Deep-Translator 1.11.4** - Multi-provider translation
-- **LangDetect 1.0.9** - Language detection
-- **PyCountry 24.6.1** - Country and language data
-- **Country-Converter 1.3** - Country code conversion
-- **LangCodes 3.5.0** - Language code utilities
+| Technology | Version | Purpose |
+|-----------|---------|---------|
+| Deep-Translator | 1.11.4 | Multi-provider translation |
+| NLLB (facebook/nllb-200-distilled-600M) | — | Facebook's No Language Left Behind model |
+| LangDetect | 1.0.9 | Language detection |
+| PyCountry | 24.6.1 | Country and language data |
+| Country-Converter | 1.3 | Country code conversion |
+| LangCodes | 3.5.0 | Language code utilities |
 
 ### 📰 **News & Data Sources**
-- **FeedParser 6.0.11** - RSS/Atom feed processing
-- **Newspaper3k 0.2.8** - Article extraction and parsing
-- **GDELTDoc 1.12.0** - GDELT API client
-- **Requests 2.32.4** - HTTP library
-- **AioHTTP 3.12.13** - Async HTTP client/server
+| Technology | Version | Purpose |
+|-----------|---------|---------|
+| FeedParser | 6.0.11 | RSS/Atom feed processing |
+| Newspaper3k | 0.2.8 | Article extraction and parsing |
+| GDELTDoc | 1.12.0 | GDELT API client |
+| Requests | 2.32.4 | HTTP library |
+| AioHTTP | 3.12.13 | Async HTTP client/server |
+| Google Search API | — | Web search for flashpoint detection |
 
 ### 📊 **Data Processing & Analytics**
-- **Pandas 2.3.0** - Data manipulation and analysis
-- **NumPy 2.3.1** - Numerical computing
-- **Scikit-Learn 1.7.0** - Machine learning
-- **SciPy 1.16.0** - Scientific computing
-- **Plotly 6.2.0** - Interactive visualizations
-- **NetworkX 3.5** - Graph analysis
+| Technology | Version | Purpose |
+|-----------|---------|---------|
+| Pandas | 2.3.0 | Data manipulation and analysis |
+| NumPy | 2.3.1 | Numerical computing |
+| Scikit-Learn | 1.7.0 | Machine learning |
+| SciPy | 1.16.0 | Scientific computing |
+| Plotly | 6.2.0 | Interactive visualizations |
+| NetworkX | 3.5 | Graph analysis |
 
 ### 🔧 **Text Processing & Similarity**
-- **FuzzyWuzzy 0.18.0** - Fuzzy string matching
-- **RapidFuzz 3.13.0** - Fast fuzzy string matching
-- **Python-Levenshtein 0.27.1** - String similarity
-- **Regex 2024.11.6** - Advanced regex operations
+| Technology | Version | Purpose |
+|-----------|---------|---------|
+| FuzzyWuzzy | 0.18.0 | Fuzzy string matching |
+| RapidFuzz | 3.13.0 | Fast fuzzy string matching |
+| Python-Levenshtein | 0.27.1 | String similarity |
+| Regex | 2024.11.6 | Advanced regex operations |
 
 ### 🚀 **Async & Concurrency**
 - **Asyncio** - Asynchronous programming
 - **Asyncio-Throttle** - Rate limiting
 - **AioHappyEyeballs** - Happy eyeballs algorithm
 - **ThreadPoolExecutor** - Thread-based parallelism
+- **APScheduler** - Task scheduling and job management
+- **Nest Asyncio** - Nested event loop support
 
 ### 📝 **Development & Quality**
-- **Black 25.1.0** - Code formatting
-- **isort 6.0.1** - Import sorting
-- **Flake8 7.3.0** - Linting
-- **MyPy 1.16.1** - Static type checking
-- **Pre-Commit 4.2.0** - Git hooks
-- **Pytest 8.4.1** - Testing framework
-- **Pytest-Asyncio 1.0.0** - Async testing
-- **Coverage 7.9.2** - Test coverage
+| Technology | Version | Purpose |
+|-----------|---------|---------|
+| Black | 25.1.0 | Code formatting |
+| isort | 6.0.1 | Import sorting |
+| Flake8 | 7.3.0 | Linting |
+| MyPy | 1.16.1 | Static type checking |
+| Pre-Commit | 4.2.0 | Git hooks |
+| Pytest | 8.4.1 | Testing framework |
+| Pytest-Asyncio | 1.0.0 | Async testing |
+| Coverage | 7.9.2 | Test coverage |
 
 ### 📚 **Documentation & Monitoring**
 - **MkDocs 1.6.1** - Documentation generator
@@ -467,8 +738,8 @@ The **API Server** provides programmatic access to the system's autonomous outpu
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/masx-ai/ai-global-signal-grid.git
-   cd masx-ai-server/modules/ai-global-signal-grid
+   git clone https://github.com/AteetVatan/masx-hotspots.git
+   cd masx-hotspots
    ```
 
 2. **Create virtual environment**
@@ -507,19 +778,28 @@ The **API Server** provides programmatic access to the system's autonomous outpu
 Create a `.env` file with the following essential variables:
 
 ```env
-# Core Configuration
-ENVIRONMENT=development
-DEBUG=true
-LOG_LEVEL=INFO
+# Flashpoint Configuration
+FLASHPOINT_MAX_ITERATIONS=10
+TARGET_FLASHPOINT=20
+HOTSPOT_QUERY=global tension last 24 hours
 
 # LLM Configuration (Required)
 MISTRAL_API_KEY=your_mistral_api_key_here
+MISTRAL_MODEL=mistral-small
+MISTRAL_API_BASE=https://api.mistral.ai/v1
+MISTRAL_TEMPERATURE=0.0
+MISTRAL_MAX_TOKENS=4000
+
 OPENAI_API_KEY=your_openai_api_key_here
+OPENAI_MODEL=gpt-4-turbo-preview
+OPENAI_TEMPERATURE=0.0
+OPENAI_MAX_TOKENS=4000
 
 # Database Configuration (Required)
 SUPABASE_URL=https://your-project.supabase.co
 SUPABASE_ANON_KEY=your_supabase_anon_key_here
 SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key_here
+SUPABASE_DB_PASSWORD=your_database_password_here
 
 # External APIs (Required)
 GOOGLE_SEARCH_API_KEY=your_google_custom_search_api_key_here
@@ -540,6 +820,24 @@ GSG_API_KEY=your-gsg-api-key
 DAILY_RUN_TIME=00:00
 TIMEZONE=UTC
 ENABLE_SCHEDULER=true
+
+# Feature Flags
+USE_GDELT=true
+USE_TRANSLATOR=true
+USE_EMBEDDINGS=true
+USE_FACT_CHECKING=true
+USE_PARALLEL_PROCESSING=true
+
+# Rate Limiting & Timeouts
+MAX_CONCURRENT_REQUESTS=10
+REQUEST_TIMEOUT=30
+RETRY_ATTEMPTS=3
+RETRY_DELAY=2
+
+# Logging
+LOG_LEVEL=INFO
+LOG_FORMAT=json
+LOG_FILE=logs/masx.log
 ```
 
 ---
@@ -553,6 +851,9 @@ The application is designed to run continuously via the daily job scheduler:
 ```bash
 # Start the daily job scheduler (recommended for production)
 python daily_job.py
+
+# Start with APScheduler-based scheduling
+python daily_job_via_scheduler.py
 ```
 
 ### Manual Execution
@@ -576,6 +877,9 @@ The system can be configured through environment variables:
 - **`ENABLE_SCHEDULER`**: Enable/disable automatic scheduling
 - **`USE_GDELT`**: Enable/disable GDELT integration
 - **`USE_TRANSLATOR`**: Enable/disable translation services
+- **`USE_EMBEDDINGS`**: Enable/disable embedding generation
+- **`USE_FACT_CHECKING`**: Enable/disable fact checking
+- **`USE_PARALLEL_PROCESSING`**: Enable/disable parallel flashpoint processing
 
 ### Monitoring and Logs
 
@@ -715,7 +1019,7 @@ docker run -d \
 
 ## 📊 Sample Output
 
-The service produces structured feed entries in the following format:
+### Feed Generation Output
 
 ```json
 {
@@ -814,83 +1118,121 @@ The service produces structured feed entries in the following format:
 ### Project Structure
 
 ```
-masx-ai-server/
-├── src/
+masx-hotspots/
+├── agent_hub/                          # 🧠 Intelligence Engine
 │   ├── app/
-│   │   ├── agents/                 # LangGraph agent implementations
-│   │   │   ├── base.py            # Base agent class
-│   │   │   ├── domain_classifier.py
-│   │   │   ├── query_planner.py
-│   │   │   ├── news_fetcher.py
-│   │   │   ├── gdelt_fetcher_agent.py
-│   │   │   ├── merge_deduplicator.py
-│   │   │   ├── language_resolver.py
-│   │   │   ├── translator.py
-│   │   │   ├── language_agent.py
-│   │   │   ├── event_analyzer.py
-│   │   │   ├── fact_checker.py
-│   │   │   ├── flashpoint_llm_agent.py
-│   │   │   ├── flashpoint_validator_agent.py
-│   │   │   ├── google_rss_agent.py
-│   │   │   └── validator.py
+│   │   ├── agents/                     # LangGraph agent implementations
+│   │   │   ├── base.py                # Base agent class
+│   │   │   ├── flashpoint_llm_agent.py # LLM-powered flashpoint detection
+│   │   │   ├── flashpoint_validator_agent.py # Flashpoint validation
+│   │   │   ├── domain_classifier.py   # Geopolitical domain classification
+│   │   │   ├── query_planner.py       # Query strategy planning
+│   │   │   ├── language_agent.py      # Language extraction
+│   │   │   ├── language_resolver.py   # Language/locale resolution
+│   │   │   ├── translator.py          # Multi-language translation
+│   │   │   ├── google_rss_agent.py    # Google RSS feed fetching
+│   │   │   ├── gdelt_fetcher_agent.py # GDELT event retrieval
+│   │   │   ├── merge_deduplicator.py  # Feed merging & deduplication
+│   │   │   ├── news_fetcher.py        # News content retrieval
+│   │   │   ├── event_analyzer.py      # Event analysis
+│   │   │   ├── fact_checker.py        # Fact validation
+│   │   │   ├── validator.py           # Data validation pipeline
+│   │   │   ├── logging_auditor.py     # Audit trail logging
+│   │   │   └── memory_manager.py      # Agent memory management
 │   │   ├── workflows/
-│   │   │   └── orchestrator.py    # Main LangGraph workflow
-│   │   ├── services/              # Business logic services
-│   │   │   ├── data_sources.py
-│   │   │   ├── translation.py
-│   │   │   ├── llm_service.py
-│   │   │   ├── database.py
-│   │   │   ├── analytics.py
-│   │   │   ├── streaming.py
-│   │   │   ├── token_tracker.py
-│   │   │   ├── web_search.py
-│   │   │   ├── language_service.py
-│   │   │   ├── masx_gdelt_service.py
-│   │   │   ├── ping_apis_service.py
-│   │   │   └── flashpoint_db_service.py
-│   │   ├── core/                  # Core data models and utilities
-│   │   │   ├── flashpoint.py
-│   │   │   ├── state.py
-│   │   │   ├── querystate.py
-│   │   │   ├── exceptions.py
-│   │   │   ├── utils.py
-│   │   │   ├── date_utils.py
-│   │   │   ├── language_utils.py
-│   │   │   ├── country_normalizer.py
-│   │   │   └── singleton/
-│   │   ├── config/                # Configuration management
-│   │   │   ├── settings.py
-│   │   │   └── logging_config.py
-│   │   ├── constants/             # Constants and lookup data
-│   │   │   ├── countriesV2.json
-│   │   │   ├── country_v2.py
-│   │   │   ├── country_variations.py
-│   │   │   ├── domains.py
-│   │   │   ├── google_translate_variants.py
-│   │   │   ├── iso_language.py
-│   │   │   ├── iso_to_nllb.py
-│   │   │   ├── lookup-gkg-countries.json
-│   │   │   └── lookup-gkgthemes.json
-│   │   └── api/                   # FastAPI application
-│   │       ├── app.py
-│   │       └── routes/
-│   │           ├── data.py
-│   │           ├── health.py
-│   │           ├── services.py
-│   │           └── workflows.py
-│   ├── main.py                    # Application entry point
-│   └── __init__.py
-├── tests/                         # Test suite
-├── requirements.txt               # Python dependencies
-├── pyproject.toml                # Project configuration
-├── Dockerfile                    # Container configuration
-├── docker-compose.yml            # Multi-service orchestration
-├── docker-entrypoint.sh          # Service launcher
-├── deploy.sh                     # Deployment script (Linux/macOS)
-├── deploy.ps1                    # Deployment script (Windows)
-├── .dockerignore                 # Docker build optimization
-├── DOCKER_README.md              # Docker deployment guide
-└── README.md                     # This file
+│   │   │   ├── orchestrator.py        # Main LangGraph workflow (53KB)
+│   │   │   ├── parallel.py            # Parallel processing utilities
+│   │   │   └── workflows.py           # Workflow definitions
+│   │   ├── services/                   # Business logic services
+│   │   │   ├── llm_service.py         # LLM abstraction layer
+│   │   │   ├── database.py            # Database operations
+│   │   │   ├── flashpoint_db_service.py # Flashpoint persistence
+│   │   │   ├── flashpoint_detection.py # Detection logic
+│   │   │   ├── translation.py         # Translation service
+│   │   │   ├── language_service.py    # Language utilities
+│   │   │   ├── analytics.py           # Analytics engine
+│   │   │   ├── data_processing.py     # Data processing pipeline
+│   │   │   ├── data_sources.py        # External data source clients
+│   │   │   ├── embedding.py           # Vector embedding generation
+│   │   │   ├── feed_parser_service.py # RSS feed parsing
+│   │   │   ├── masx_gdelt_service.py  # GDELT integration
+│   │   │   ├── web_search.py          # Web search service
+│   │   │   ├── streaming.py           # Data streaming
+│   │   │   ├── token_tracker.py       # Token usage tracking
+│   │   │   ├── ping_apis_service.py   # API health pinging
+│   │   │   └── gdeltdoc/              # GDELT document library
+│   │   ├── core/                       # Core models & utilities
+│   │   │   ├── state.py               # LangGraph state definitions
+│   │   │   ├── querystate.py          # Query state model
+│   │   │   ├── flashpoint.py          # Flashpoint data model
+│   │   │   ├── flashpointstore.py     # Flashpoint store
+│   │   │   ├── exceptions.py          # Custom exceptions
+│   │   │   ├── utils.py               # General utilities
+│   │   │   ├── date_utils.py          # Date handling utilities
+│   │   │   ├── language_utils.py      # Language utilities
+│   │   │   ├── country_normalizer.py  # Country data normalization
+│   │   │   ├── enums/                 # Enum definitions
+│   │   │   └── singleton/             # Singleton pattern
+│   │   ├── config/                     # Configuration
+│   │   │   ├── settings.py            # Settings management
+│   │   │   └── logging_config.py      # Logging configuration
+│   │   ├── constants/                  # Lookup data
+│   │   │   ├── countriesV2.json       # Country data (329KB)
+│   │   │   ├── country_v2.py          # Country utilities
+│   │   │   ├── country_variations.py  # Country name variations
+│   │   │   ├── domains.py             # Domain classifications
+│   │   │   ├── gdelt_countries.py     # GDELT country codes
+│   │   │   ├── google_translate_variants.py # Translation variants
+│   │   │   ├── iso_language.py        # ISO language codes
+│   │   │   ├── iso_to_nllb.py         # ISO to NLLB mappings
+│   │   │   ├── lookup-gkg-countries.json # GKG country lookup
+│   │   │   └── lookup-gkgthemes.json  # GKG themes lookup (1.1MB)
+│   │   └── external/                   # External clients
+│   │       └── feed_etl_trigger_client.py # Feed ETL trigger
+│   ├── flashpoints/                    # Stored flashpoint results
+│   ├── daily_job.py                    # Daily scheduler script
+│   ├── daily_job_via_scheduler.py      # APScheduler-based scheduler
+│   ├── main_debug.py                   # Debug/development entry point
+│   ├── Dockerfile                      # Agent Hub container
+│   ├── env.example                     # Environment template
+│   ├── requirements.txt                # Python dependencies
+│   └── README.md                       # Agent Hub documentation
+│
+├── api_server/                         # 🛰️ API Data Access Layer
+│   ├── app/
+│   │   ├── api/
+│   │   │   ├── app.py                 # FastAPI application factory
+│   │   │   └── routes/                # Route handlers
+│   │   │       ├── data.py            # Data endpoints
+│   │   │       ├── health.py          # Health check endpoints
+│   │   │       ├── services.py        # Service endpoints
+│   │   │       └── workflows.py       # Workflow endpoints
+│   │   ├── config/
+│   │   │   ├── settings.py            # Settings management
+│   │   │   └── logging_config.py      # Logging configuration
+│   │   └── core/
+│   │       └── exceptions.py          # Custom exceptions
+│   ├── main.py                         # API server entry point
+│   ├── Dockerfile                      # API Server container
+│   ├── env.example                     # Environment template
+│   ├── requirements.txt                # Python dependencies
+│   └── README.md                       # API Server documentation
+│
+├── poc_files/                          # 🧪 Proof of Concept
+│   ├── custom_gpt_google.py           # Custom GPT + Google integration
+│   └── google_rss_generator.py        # Google RSS feed URL generator
+│
+├── tests/                              # 🧪 Test Suite
+│   ├── test_agents/                   # Agent unit tests
+│   ├── test_services/                 # Service unit tests
+│   └── test_workflows/                # Workflow integration tests
+│
+├── pyproject.toml                      # Project configuration (hatchling)
+├── requirements.txt                    # Root-level dependencies
+├── env.example                         # Root environment template
+├── LICENSE                             # License file
+├── .gitignore                          # Git ignore rules
+└── README.md                           # This file
 ```
 
 ### Development Commands
@@ -1026,14 +1368,13 @@ gantt
 
 1. **Fork the Repository**
    ```bash
-   git clone https://github.com/your-username/masx-ai-server.git
-   cd masx-ai-server
+   git clone https://github.com/AteetVatan/masx-hotspots.git
+   cd masx-hotspots
    ```
 
 2. **Install Development Dependencies**
    ```bash
-   pip install -r requirements.txt
-   # Uncomment development dependencies in requirements.txt
+   pip install -e ".[dev]"
    ```
 
 3. **Set Up Pre-commit Hooks**
@@ -1094,27 +1435,24 @@ This project is not open-source and is intended solely for internal, research, o
 
 ---
 
-## 🔗 Related Projects
+## 🔗 Related Projects & Links
 
-- **[MASX Core](https://github.com/masx-ai/masx-core)** - Core flashpoint detection engine
-- **[MASX Dashboard](https://github.com/masx-ai/masx-dashboard)** - Real-time visualization interface
-- **[MASX API Gateway](https://github.com/masx-ai/masx-gateway)** - Unified API management
+- **GitHub**: [https://github.com/AteetVatan/masx-hotspots](https://github.com/AteetVatan/masx-hotspots)
+- **Website**: [MASXAI.com](https://masxai.com)
 
 ---
 
 ## 📞 Support
 
-- **Documentation**: [docs.masx.ai](https://docs.masx.ai)
-- **Issues**: [GitHub Issues](https://github.com/masx-ai/ai-global-signal-grid/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/masx-ai/ai-global-signal-grid/discussions)
-- **Email**: support@masxai.com
+- **Email**: [ab@masxai.com](mailto:ab@masxai.com)
+- **Website**: [MASXAI.com](https://masxai.com)
 
 ---
 
 <div align="center">
 
-**Built with FIRE by Ateet founder MASX AI**
+**Built with 🔥 by Ateet Vatan Bahmani — Founder of MASX AI**
 
-[Website](https://masxai.com) • [Documentation](https://docs.masxai.com) • [Support](mailto:ab@masxai.com)
+[Website](https://masxai.com) • [GitHub](https://github.com/AteetVatan/masx-hotspots) • [Portfolio](https://ateetai.vercel.app/) • [Support](mailto:ab@masxai.com)
 
 </div>

@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Data Analytics Service for Global Signal Grid (MASX) Agentic AI System.
+Data Analytics Service for MASX-HOTSPOTS Agentic AI System.
 
 Provides advanced analytics capabilities:
 - Data aggregation and statistical analysis

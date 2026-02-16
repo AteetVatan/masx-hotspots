@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Global Signal Grid (GSG)
+MASX-HOTSPOTS
 A modular, multi-agent system for geopolitical intelligence gathering.
 Powered by LangGraph, CrewAI, and AutoGen for collaborative reasoning.
 

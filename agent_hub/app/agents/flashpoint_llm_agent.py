@@ -17,7 +17,7 @@
 # Contact: ab@masxai.com | MASXAI.com
 
 """
-Flashpoint LLM Agent for Global Signal Grid (MASX) Agentic AI System.
+Flashpoint LLM Agent for MASX-HOTSPOTS Agentic AI System.
 
 Implements iterative flashpoint detection using LLM reasoning and web search.
 Detects global geopolitical flashpoints through multi-domain analysis with
